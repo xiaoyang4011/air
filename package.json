@@ -1,0 +1,58 @@
+{
+  "name": "shawn-blog-koa",
+  "version": "0.0.1",
+  "description": "shawn-blog-koa",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaoyang4011/shawn-blog-koa.git"
+  },
+  "keywords": [
+    "shawn-blog-koa"
+  ],
+  "author": "shawn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaoyang4011/shawn-blog-koa/issues"
+  },
+  "homepage": "https://github.com/xiaoyang4011/shawn-blog-koa#readme",
+  "dependencies": {
+    "babel-core": "^6.9.1",
+    "babel-preset-es2015-node5": "^1.2.0",
+    "babel-preset-stage-3": "^6.5.0",
+    "bluebird": "^3.4.0",
+    "co": "^4.6.0",
+    "debug": "^2.2.0",
+    "glob": "^7.0.5",
+    "koa": "^2.0.0",
+    "koa-bodyparser": "^3.1.0",
+    "koa-compress": "^2.0.0",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "0.0.16",
+    "koa-generic-session": "^1.11.1",
+    "koa-json": "^2.0.2",
+    "koa-log4": "^2.0.1",
+    "koa-logger": "^2.0.0",
+    "koa-onerror": "^1.2.1",
+    "koa-redis": "^2.1.1",
+    "koa-response-time": "^2.0.0",
+    "koa-router": "^7.0.0",
+    "lodash": "^4.13.1",
+    "mongoose": "^4.5.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coveralls": "^0.1.4",
+    "gulp-env": "^0.4.0",
+    "gulp-istanbul": "^0.10.4",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-sequence": "^0.4.5",
+    "gulp-standard": "^7.0.1",
+    "gulp-util": "^3.0.7",
+    "should": "^8.3.1",
+    "sinon": "^1.17.4",
+    "supertest": "^1.2.0"
+  }
+}
