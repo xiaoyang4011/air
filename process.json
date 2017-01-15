@@ -1,12 +1,12 @@
 {
 	"apps" : [
         {
-            "name"          : "shawn blog api",
+            "name"          : "air api",
             "script"        : "./server/app.js",
             "log_date_format"  : "YYYY-MM-DD HH:mm Z",
-            "out_file"      : "/log/pm2-out.log",
-            "error_file"    : "/log/pm2-err.log",
-            "pid_file"      : "/log/shawn-api-koa.pid",
+            "out_file"      : "/opt/logs/air/pm2-out.log",
+            "error_file"    : "/opt/logs/air/pm2-err.log",
+            "pid_file"      : "/opt/logs/air/air-api.pid",
             "ignoreWatch"   : ["[\\/\\\\]\\./", "node_modules"],
             "watch"         : "false",
             "node_args"     : "--harmony",

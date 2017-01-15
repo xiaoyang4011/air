@@ -5,11 +5,11 @@ module.exports = {
     logLevel: 'INFO',
     maxLogSize: 10485760,
     backups: 100,
-    cwd: '/var/log/yunniao/',
+    cwd: '/opt/logs/air/',
     alwaysIncludePattern: true
   },
   db: {
-    uri: 'mongodb://' + (process.env.DB_HOST_PORT || '127.0.0.1:30000') + '/air',
+    uri: 'mongodb://' + (process.env.DB_HOST_PORT || '127.0.0.1:27017') + '/air',
     options: {
       user: '',
       pass: ''

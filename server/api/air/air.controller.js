@@ -1,12 +1,34 @@
 'use strict'
 
 const mongoose = require('mongoose')
-const Article = mongoose.model('Article')
-const Tag = mongoose.model('Tag')
+const Air = mongoose.model('Air')
+const _ = require('lodash')
+const config = require('../../config')
 
 exports.createAirRecord = function * (ctx, next) {
-  yield Tag.create({title: 'tag1', content: 'tag1 content'})
+  var body = ctx.request.body
 
-  ctx.body = {status: 'success', data: 'success add tag'}
+  if (_.isEmpty(body.code)) {
+    return ctx.body = { apicode: 10010, msg: 'invalid code' }  
+  }
+
+  if (_.isString(body.code) &&  body.code.length === 64 && body.code.slice(0, 8) === config.pi.start_stop_flag) {
+    let airData = {
+      code: body.code,
+      pm1_0_cf: parseInt(body.code.slice(8, 12), 16),
+      pm2_5_cf: parseInt(body.code.slice(12, 16), 16),
+      pm10_cf: parseInt(body.code.slice(16, 20), 16),
+      pm1_0: parseInt(body.code.slice(20, 24), 16),
+      pm2_5: parseInt(body.code.slice(24, 28), 16),
+      pm10: parseInt(body.code.slice(28, 32), 16),
+    }
+
+    yield Air.create(airData)
+
+    ctx.body = { apicode: 10000, msg: 'success' }
+  } else {
+    ctx.body = { apicode: 10010, msg: 'invalid code' }
+  }
+
 }
 

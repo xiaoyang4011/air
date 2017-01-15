@@ -2,6 +2,9 @@
 
 module.exports = {
   port: process.env.PORT || 3000,
+  pi: {
+    start_stop_flag: '424d001c'
+  },
   log: {
     logLevel: 'INFO',
     maxLogSize: 10485760,

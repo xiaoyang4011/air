@@ -5,7 +5,6 @@ const logger = require('log4js').getLogger('access')
 function errorHandleMiddle () {
   return function * (ctx, next) {
     try {
-      yield next
     } catch (err) {
       ctx.status = err.status || 500
 
