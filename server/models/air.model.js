@@ -38,4 +38,6 @@ AirSchema.virtual('cts_display').get(function () {
   return moment(this.cts).format('YYYY-MM-DD hh:mm:ss')
 })
 
+AirSchema.index({cts: -1});
+
 module.exports = mongoose.model('Air', AirSchema)
