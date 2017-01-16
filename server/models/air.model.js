@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const moment = require('moment')
 
 let AirSchema = new Schema({
   code: {
@@ -31,6 +32,10 @@ let AirSchema = new Schema({
     required: true,
     default: Date.now
   }
+})
+
+AirSchema.virtual('cts_display').get(function () {
+  return moment(this.cts).format('YYYY-MM-DD hh:mm:ss')
 })
 
 module.exports = mongoose.model('Air', AirSchema)

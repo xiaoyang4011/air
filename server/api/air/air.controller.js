@@ -32,3 +32,12 @@ exports.createAirRecord = function * (ctx, next) {
 
 }
 
+exports.getCurrentAir = function * (ctx, next) {
+  var currentAir = yield Air.findOne().sort({ cts: -1 })
+
+  ctx.body = {
+    apicode: 10000,
+    msg: 'success',
+    data: _.pick(currentAir, ['pm1_0_cf', 'pm2_5_cf', 'pm10_cf', 'pm1_0', 'pm2_5', 'pm10', 'cts_display'])
+  }
+}
