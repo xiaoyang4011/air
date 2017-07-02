@@ -35,7 +35,7 @@ let AirSchema = new Schema({
 })
 
 AirSchema.virtual('cts_display').get(function () {
-  return moment(this.cts).format('YYYY-MM-DD hh:mm:ss')
+  return moment(this.cts).format('YYYY-MM-DD HH:mm:ss')
 })
 
 AirSchema.index({cts: -1});
