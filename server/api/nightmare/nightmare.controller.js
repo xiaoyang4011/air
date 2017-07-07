@@ -16,10 +16,8 @@ exports.create = function * (ctx, next) {
   ctx.body = { apicode: 10000, msg: 'success'}
 }
 
-exports.get = function * (ctx, next) {
-  let body = ctx.request.body
+exports.list = function * (ctx, next) {
+  let list = yield Nightmare.find()
 
-  Nightmare.find().then(function (docs){
-    return ctx.body = { apicode: 10000, msg: 'success'}  
-  }).catch(next)
+  return ctx.body = { apicode: 10000, msg: 'success', data: list} 
 }
