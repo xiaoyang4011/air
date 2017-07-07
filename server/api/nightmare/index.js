@@ -5,6 +5,6 @@ const controller = require('./nightmare.controller')
 const co = require('co')
 
 router.post('/create', co.wrap(controller.create))
-router.post('/get', co.wrap(controller.create))
+router.get('/get', co.wrap(controller.get))
 
 module.exports = router
