@@ -15,3 +15,11 @@ exports.create = function * (ctx, next) {
   Nightmare.create({result: body.result})
   ctx.body = { apicode: 10000, msg: 'success'}
 }
+
+exports.get = function * (ctx, next) {
+  let body = ctx.request.body
+
+  Nightmare.find().then(function (docs){
+    return ctx.body = { apicode: 10000, msg: 'success'}  
+  }).catch(next)
+}

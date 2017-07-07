@@ -10,4 +10,4 @@ gulpFiles.forEach(function (gulpFilePath) {
   require(path.resolve(gulpFilePath))
 })
 
-gulp.task('default', ['serve'])
+gulp.task('default', ['server'])
