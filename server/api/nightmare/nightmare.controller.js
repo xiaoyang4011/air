@@ -19,5 +19,7 @@ exports.create = function * (ctx, next) {
 exports.list = function * (ctx, next) {
   let list = yield Nightmare.find()
 
-  return ctx.body = { apicode: 10000, msg: 'success', data: list} 
+  return ctx.body = { apicode: 10000, msg: 'success', data: _.map(list, function(item) {
+    return _.pick(item, ['result', 'cts_display'])
+  })} 
 }
