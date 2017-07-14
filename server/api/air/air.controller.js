@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose')
 const Air = mongoose.model('Air')
+const Moji = mongoose.model('Moji')
 const _ = require('lodash')
 const config = require('../../config')
 
@@ -40,4 +41,19 @@ exports.getCurrentAir = function * (ctx, next) {
     msg: 'success',
     data: _.pick(currentAir, ['pm1_0_cf', 'pm2_5_cf', 'pm10_cf', 'pm1_0', 'pm2_5', 'pm10', 'cts_display'])
   }
+}
+
+exports.moji = function * (ctx, next) {
+  var body = ctx.request.body
+
+  if (body.result) {
+    yield Moji.create({ result: body.result })
+  }
+  ctx.body = { apicode: 10000, msg: 'success' }
+}
+
+exports.getMj = function * (ctx, next) {
+  var currentAir = yield Moji.findOne().sort({ cts: -1 })
+
+  ctx.body = { apicode: 10000, msg: 'success', data: currentAir.result }
 }
